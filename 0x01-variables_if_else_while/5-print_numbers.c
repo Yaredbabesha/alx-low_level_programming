@@ -7,7 +7,6 @@
 int main(void)
 {
  int i;
-[A[[[C[C[C[C[int i;
 for (i = 0; i < 10; i++)
 {
 printf("%i",i);
