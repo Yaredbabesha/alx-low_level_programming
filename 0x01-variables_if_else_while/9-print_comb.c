@@ -7,7 +7,6 @@
 int main(void)
 {
  int number;
-[A[C[C[C[C[C[C[C[Cint number;
 for (number = 48; number <= 57; number++)
 {
 putchar(number);
