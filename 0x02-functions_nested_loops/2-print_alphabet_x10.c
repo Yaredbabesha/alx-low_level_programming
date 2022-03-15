@@ -1,4 +1,7 @@
-#include "holberton.h"
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
+
+#include <stdarg.h>
 /**
   * print_alphabet_x10 - repeats the print_alphabet 10 times.
   * Return: Nothing.
