@@ -13,11 +13,10 @@ print("infinite loop incoming :(\n");
 i = 0;
 
 /*
- *while (i < 10)
+*while (i < 10)
 *{
-[A[C *{
- *infinite loop - no increase of variable
- *putchar(i);
+*infinite loop - no increase of variable
+*putchar(i);
 }
 */
 
