@@ -13,5 +13,5 @@ int _upper(int c)
     return (1):
   }
   else
-    reeturn(0);
+    return(0);
 }
