@@ -1,30 +1,31 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 
 /**
- * rot13 - encoder rot13
- * @s: pointer to string params
- *
- * Return: *s
+ *print_number - print a number using _putchar.
+ *@n: the number to be printed.
  */
 
-char *rot13(char *s)
+void print_number(int n)
 {
-	int i;
-	int j;
-	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char datarot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	unsigned int i = 1;
 
-	for (i = 0; s[i] != '\0'; i++)
+	if (n < 0)
 	{
-		for (j = 0; j < 52; j++)
+		_putchar('-');
+		n *= -1;
+	}
+	if (n == 0)
+		_putchar('0');
+	else
+	{
+		while ((n / i) >= 10)
+			i *= 10;
+
+		while (i > 0)
 		{
-			if (s[i] == data1[j])
-			{
-				s[i] = datarot[j];
-				break;
-			}
+			_putchar((n / i) + '0');
+			n %= i;
+			i /= 10;
 		}
 	}
-	return (s);
 }
