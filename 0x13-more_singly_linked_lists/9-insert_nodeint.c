@@ -1,41 +1,40 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * insert_nodeint_at_index - inserts a new node at a given position
- * @head: double pointer to head of list
- * @idx: index to add new node
- * @n: value at new node
- * Return: address of new node, or NULL if failed
- */
+ * insert_nodeint_at_index - Insert a new node at a given positiion.
+ * @head: First node address.
+ * @idx: Position of the new node to be inserted in.
+ * @n: Data of the new node.
+ * Return: Address of the new node.
+ **/
+
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *current;
-	listint_t *newNode;
+	listint_t *new_node, *temp;
+	unsigned int i = 0;
 
-	register uint i;
-
-	newNode = malloc(sizeof(listint_t));
-	if (!head || !newNode)
+	if (*head == NULL && idx != 0)
 		return (NULL);
-	newNode->n = n;
-	if (!idx)
+	if (idx != 0)
 	{
-		newNode->next = *head;
-		*head = newNode;
-		return (newNode);
+	temp = *head;
+	for (; i < idx - 1 && temp != NULL; i++)
+		temp = temp->next;
+	if (temp == NULL)
+		return (NULL);
 	}
-	current = *head;
-	while (current)
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	if (idx == 0)
 	{
-		if (i == idx - 1)
-		{
-			newNode->next = current->next;
-			current->next = newNode;
-			return (newNode);
-		}
-		i++;
-		current = current->next;
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
 	}
-	free(newNode);
-	return (NULL);
+	new_node->next = temp->next;
+	temp->next = new_node;
+	return (new_node);
 }
